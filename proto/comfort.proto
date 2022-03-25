@@ -1,0 +1,19 @@
+syntax = "proto3";
+package comfort;
+
+service Comfort {
+    rpc SetDesiredTemperature (TemperatureRequest) returns (TemperatureReply);
+    rpc GetCabinTemperature (TemperatureStreamRequest) returns (stream TemperatureReply);
+}
+
+message TemperatureStreamRequest {
+    uint64 period = 1;
+}
+
+message TemperatureRequest {
+    float temperature = 1;
+}
+
+message TemperatureReply {
+    float temperature = 1;
+}
