@@ -18,10 +18,8 @@ pub struct SClassComfort {}
 impl Comfort for SClassComfort {
     async fn set_desired_temperature(
         &self,
-        request: Request<TemperatureRequest>, // Accept request of type HelloRequest
+        request: Request<TemperatureRequest>,
     ) -> Result<Response<TemperatureReply>, Status> {
-        // Return an instance of type HelloReply
-
         let temperature = request.into_inner().temperature;
 
         // println!("Setting desired interior temperature to {:?}", temperature);
