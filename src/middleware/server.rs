@@ -1,6 +1,5 @@
 use comfort::comfort_server::{Comfort, ComfortServer};
 use comfort::{TemperatureReply, TemperatureRequest, TemperatureStreamRequest};
-use rand::thread_rng;
 use tokio::sync::mpsc;
 use tokio::time::{sleep, Duration};
 use tokio_stream::wrappers::ReceiverStream;
