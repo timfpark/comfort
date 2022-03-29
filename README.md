@@ -35,7 +35,7 @@ On a MacBook Pro M1 and over 100k iterations we observed an average request late
 
 ### Executable Size
 
-[Tonic](https://github.com/hyperium/tonic) utilizes [prost](https://github.com/tokio-rs/prost) and [tokio](https://tokio.rs) under the covers. Together the three libraries add 2.8MiB to the executable size.
+[Tonic](https://github.com/hyperium/tonic) utilizes [prost](https://github.com/tokio-rs/prost) and [tokio](https://tokio.rs) under the covers. Together the three libraries add 2.8MiB to the executable size. There is probably a lot of optimization that can happen here to further reduce this size and it is also expected that a lot of this increase will be amortized over other uses of the std library and Tokio.
 
 ### Memory Usage
 
