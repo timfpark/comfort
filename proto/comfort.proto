@@ -6,14 +6,14 @@ service Comfort {
     rpc GetCabinTemperature (TemperatureStreamRequest) returns (stream TemperatureReply);
 }
 
-message TemperatureStreamRequest {
-    uint64 period = 1;
-}
-
 message TemperatureRequest {
     float temperature = 1;
 }
 
 message TemperatureReply {
     float temperature = 1;
+}
+
+message TemperatureStreamRequest {
+    uint64 period = 1;
 }

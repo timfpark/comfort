@@ -41,9 +41,16 @@ impl Comfort for SClassComfort {
         tokio::spawn(async move {
             loop {
                 // In real implementation would fetch temperature from in vehicle twin.
-
                 let temperature_reply = comfort::TemperatureReply { temperature: 17.5 };
-                tx.send(Ok(temperature_reply)).await.unwrap();
+
+                println!("sending temperature reply");
+                match tx.send(Ok(temperature_reply)).await {
+                    Ok(_) => (),
+                    Err(_) => {
+                        println!("ending stream");
+                        break;
+                    }
+                };
 
                 sleep(Duration::from_millis(period)).await;
             }
